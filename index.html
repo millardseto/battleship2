@@ -8,12 +8,20 @@
   <body>
     <!-- controls are not in a form because we're not submitting data anywhere -->
     <label for="columns"># of columns</label>
-    <input type="text" id="columns" name="columns" value="">
+    <input type="number" id="columns" name="columns" value="7">
 
     <button type="button" id="btnOK">OK</button>
     <div class="" id="output">
 
     </div>
+
+    <label for="hits">Hits:</label>
+    <input type="text" id="hits" name="hits" value="" disabled>
+    <label for="guesses">Guesses:</label>
+    <input type="text" id="guesses" name="guesses" value="" disabled>
+    <label for="accuracy">Accuracy:</label>
+    <input type="text" id="accuracy" name="accuracy" value="" disabled>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/battleship.js"></script>
   </body>

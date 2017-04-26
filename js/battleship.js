@@ -1,4 +1,8 @@
 $(function(){
+
+  var guesses = 0;
+  var hits = 0;
+
   $("#btnOK").click(makeBattleZone);
 
   function makeBattleZone() {
@@ -25,6 +29,13 @@ $(function(){
       document.getElementById("myTr").appendChild(z);
     }
 
+    /* event handler */
+    $("td").click(function(td){
+      alert("Clicked: " + td.target.id);
+      guesses++;
 
+      $("#guesses").val(guesses);
+      $("#accuracy").val(hits/guesses);
+    });
   }
 });
