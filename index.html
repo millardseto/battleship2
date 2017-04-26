@@ -22,25 +22,29 @@
           <div class="col-md-2">
             <!-- controls are not in a form because we're not submitting data anywhere -->
             <label for="columns">Size: </label>
-            <input type="number" id="columns" name="columns" value="7" class="small-field">
-            <label for="cheat">Cheat:</label>
-            <input type="checkbox" id="cheat" name="cheat" value="">
+            <input type="number" id="columns" name="columns" value="7" class="form-control">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="cheat" name="cheat" value="">
+                Cheat
+              </label>
+            </div>
             <button type="button" id="btnOK">Reset Game</button>
             <div class="" id="output"></div>
           </div>
 
-          <div id="main" class="col-md-8">
+          <div id="main" class="col-md-7">
             <h3>Guess where the ship is - click on a cell.</h3>
             <p id="message"></p>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-md-3">
             <label for="hits">Hits:</label>
-            <input type="text" id="hits" name="hits" value="" disabled>
+            <input type="text" id="hits" name="hits" value="" disabled class="form-control">
             <label for="guesses">Guesses:</label>
-            <input type="text" id="guesses" name="guesses" value="" disabled>
+            <input type="text" id="guesses" name="guesses" value="" disabled class="form-control">
             <label for="accuracy">Accuracy:</label>
-            <input type="text" id="accuracy" name="accuracy" value="" disabled>
+            <input type="text" id="accuracy" name="accuracy" value="" disabled class="form-control">
           </div>
         </div>
       </div>
