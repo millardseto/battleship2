@@ -1,24 +1,27 @@
 $(function() {
-    // ship
-    var randomLoc = Math.floor(Math.random() * 5); // random 0 to 4
-    var location1 = randomLoc;
-    var location2 = location1 + 1;
-    var location3 = location2 + 1;
 
-
-    var guesses = 0;
-    var hits = 0;
 
     $("#btnOK").click(makeBattleZone);
 
     makeBattleZone(); // by default set up the game
 
     function makeBattleZone() {
+      // ship
+      var randomLoc = Math.floor(Math.random() * 5); // random 0 to 4
+      var location1 = randomLoc;
+      var location2 = location1 + 1;
+      var location3 = location2 + 1;
+
+      var guesses = 0;
+      var hits = 0;
+
 
         var columns = $("#columns").val();
 
         /* remove table if it already exists */
         $("#myTable").remove();
+        $("#message").text("");
+
 
         var x = document.createElement("TABLE");
         x.setAttribute("id", "myTable");
@@ -47,10 +50,11 @@ $(function() {
             if (guess == location1 || guess == location2 || guess == location3) {
                 $(td.target).addClass("hit");
                 hits++;
+                $("#hits").val(hits);
 
                 if (hits == 3) {
                     isSunk = true;
-                    $("#message").text("you sank my battleship!");
+                    $("#message").text("You sank my battleship!");
                 }
             } else {
                 //alert("MISS");

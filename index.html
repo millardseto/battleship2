@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="./css/master.css">
   </head>
   <body>
+    <header>
+      <h1>Battleship</h1>
+    </header>
+    <h3>Guess where the ship is - click on a cell.</h3>
+
     <!-- controls are not in a form because we're not submitting data anywhere -->
     <label for="columns"># of columns</label>
     <input type="number" id="columns" name="columns" value="7">
 
-    <button type="button" id="btnOK">OK</button>
+    <button type="button" id="btnOK">Reset Game</button>
     <div class="" id="output">
 
     </div>
@@ -22,7 +27,6 @@
     <label for="accuracy">Accuracy:</label>
     <input type="text" id="accuracy" name="accuracy" value="" disabled>
     <p id="message">
-      hello
     </p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
