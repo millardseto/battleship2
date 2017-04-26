@@ -43,7 +43,11 @@ $(function() {
 
     /* handle user guess */
     $("td").click(function(td) {
-      //alert("Clicked: " + td.target.id);
+      // if user already click on this before, exit.
+      if (td.target.className == "hit" || td.target.className == "miss") {
+        return;
+      }
+
       var guess = td.target.id;
 
       guesses++;
