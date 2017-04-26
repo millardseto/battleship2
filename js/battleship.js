@@ -18,7 +18,7 @@ $(function() {
 
     // reset UI
     $("#cheat").prop("checked", false);
-    $("#hits").val(0);   
+    $("#hits").val(0);
     $("#guesses").val(0);
     $("#accuracy").val(0);
 
@@ -39,7 +39,8 @@ $(function() {
 
     var x = document.createElement("TABLE");
     x.setAttribute("id", "myTable");
-    document.body.appendChild(x);
+    //document.body.appendChild(x);
+    $("#main").append(x);
 
     var y = document.createElement("TR");
     y.setAttribute("id", "myTr");

@@ -44,3 +44,7 @@ td {
   margin-left: 4rem;
   margin-right: 4rem;
 }
+
+.small-field {
+  width: 4rem;
+}
