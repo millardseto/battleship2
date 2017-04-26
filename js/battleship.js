@@ -11,6 +11,8 @@ $(function() {
 
     $("#btnOK").click(makeBattleZone);
 
+    makeBattleZone(); // by default set up the game
+
     function makeBattleZone() {
 
         var columns = $("#columns").val();
@@ -43,14 +45,12 @@ $(function() {
             guesses++;
 
             if (guess == location1 || guess == location2 || guess == location3) {
-                //alert("HIT!");
-
                 $(td.target).addClass("hit");
                 hits++;
 
                 if (hits == 3) {
                     isSunk = true;
-                    alert("you sank my battleship!");
+                    $("#message").text("you sank my battleship!");
                 }
             } else {
                 //alert("MISS");
