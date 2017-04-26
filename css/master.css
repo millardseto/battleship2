@@ -6,7 +6,7 @@ header, footer {
 }
 
 header {
-  height: 6rem;
+  
 }
 
 body {
@@ -45,6 +45,8 @@ td {
   margin-right: 4rem;
 }
 
-.small-field {
-  width: 4rem;
+.gameH1 {
+  font-size: 8rem;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2rem;
 }
