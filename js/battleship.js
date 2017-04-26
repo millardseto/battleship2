@@ -1,26 +1,35 @@
 $(function() {
+  var location1;
+  var location2;
+  var location3;
+  var guesses = 0;
+  var hits = 0;
+  var isSunk = false;
+  var shipSize = 3;
+
   $("#btnOK").click(makeBattleZone);
 
   makeBattleZone(); // by default set up the game
-
-
-
-
   function makeBattleZone() {
-    var columns = $("#columns").val();
+    // reset values
+    isSunk = false;
+    hits = 0;
+    guesses = 0;
 
-    var shipSize = 3;
+    // reset UI
+    $("#cheat").prop("checked", false);
+    $("#hits").val(0);   
+    $("#guesses").val(0);
+    $("#accuracy").val(0);
+
+    var columns = $("#columns").val();
 
     // ship
     //var randomLoc = Math.floor(Math.random() * 5); // random 0 to 4
     var randomLoc = Math.floor(Math.random() * (columns-(shipSize-1))); // random
-    var location1 = randomLoc;
-    var location2 = location1 + 1;
-    var location3 = location2 + 1;
-
-    var guesses = 0;
-    var hits = 0;
-    var isSunk = false;
+    location1 = randomLoc;
+    location2 = location1 + 1;
+    location3 = location2 + 1;
 
 
     /* remove table if it already exists */
@@ -45,6 +54,7 @@ $(function() {
       document.getElementById("myTr").appendChild(z);
     }
 
+    // we have a new table every time, so rebind event everytime
     /* handle user guess */
     $("td").click(function(td) {
       // if user already click on this before, or if game is over, do nothing.
@@ -57,6 +67,7 @@ $(function() {
       guesses++;
 
       if (guess == location1 || guess == location2 || guess == location3) {
+        $(td.target).removeClass("cheat");
         $(td.target).addClass("hit");
         hits++;
         $("#hits").val(hits);
@@ -72,13 +83,21 @@ $(function() {
 
       $("#guesses").val(guesses);
       $("#accuracy").val(hits / guesses);
-    });
+    }); // end on click for user guess
 
-    // reveal where ship is
-    // $("#cheat").click(function(chkCheat){
-    //   $("#"+location1).toggleClass("cheat");
-    //   $("#"+location2).toggleClass("cheat");
-    //   $("#"+location3).toggleClass("cheat");
-    // });
-  }
+  } // end makeBattleZone
+
+
+
+  // reveal where ship is
+  $("#cheat").click(function(chkCheat){
+    $("#"+location1).toggleClass("cheat");
+    $("#"+location2).toggleClass("cheat");
+    $("#"+location3).toggleClass("cheat");
+  });
+
+
+
+
+
 });
