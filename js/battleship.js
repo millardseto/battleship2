@@ -3,6 +3,9 @@ $(function() {
 
   makeBattleZone(); // by default set up the game
 
+
+
+
   function makeBattleZone() {
     var columns = $("#columns").val();
 
@@ -17,6 +20,7 @@ $(function() {
 
     var guesses = 0;
     var hits = 0;
+    var isSunk = false;
 
 
     /* remove table if it already exists */
@@ -43,8 +47,8 @@ $(function() {
 
     /* handle user guess */
     $("td").click(function(td) {
-      // if user already click on this before, exit.
-      if (td.target.className == "hit" || td.target.className == "miss") {
+      // if user already click on this before, or if game is over, do nothing.
+      if (td.target.className == "hit" || td.target.className == "miss" || isSunk) {
         return;
       }
 
@@ -59,6 +63,8 @@ $(function() {
 
         if (hits == shipSize) {
           $("#message").text("You sank my battleship!");
+          isSunk = true;
+          //$("#myTable").find("*").attr("disabled", "disabled"); // game is over, block user from clicking
         }
       } else {
         $(td.target).addClass("miss");
@@ -67,5 +73,12 @@ $(function() {
       $("#guesses").val(guesses);
       $("#accuracy").val(hits / guesses);
     });
+
+    // reveal where ship is
+    // $("#cheat").click(function(chkCheat){
+    //   $("#"+location1).toggleClass("cheat");
+    //   $("#"+location2).toggleClass("cheat");
+    //   $("#"+location3).toggleClass("cheat");
+    // });
   }
 });
