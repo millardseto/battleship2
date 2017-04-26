@@ -5,15 +5,17 @@ header, footer {
   padding-left: 1rem;
 }
 
+header {
+  height: 6rem;
+}
+
 body {
-  margin-left: 4rem;
-  margin-right: 4rem;
+
 }
 
 footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
-
 }
 
 table, th, td {
@@ -36,4 +38,9 @@ td {
 
 .cheat {
   background-color: blue;
+}
+
+.gameArea {
+  margin-left: 4rem;
+  margin-right: 4rem;
 }

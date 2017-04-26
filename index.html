@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Battleship 2</title>
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/master.css">
-  </head>
-  <body>
-    <header>
-      <h1>Battleship</h1>
-    </header>
+
+<head>
+  <meta charset="utf-8">
+  <title>Battleship 2</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/master.css">
+</head>
+
+<body>
+  <header>
+    <h1>Battleship 2</h1>
+  </header>
+
+  <div class="gameArea">
     <h3>Guess where the ship is - click on a cell.</h3>
 
     <!-- controls are not in a form because we're not submitting data anywhere -->
@@ -34,8 +38,10 @@
     <input type="text" id="accuracy" name="accuracy" value="" disabled>
     <p id="message">
     </p>
+  </gameArea>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./js/battleship.js"></script>
-  </body>
+</body>
+
 </html>
