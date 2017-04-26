@@ -6,7 +6,7 @@ header, footer {
 }
 
 header {
-  
+
 }
 
 body {
@@ -49,4 +49,7 @@ td {
   font-size: 8rem;
   font-family: 'Anton', sans-serif;
   letter-spacing: 2rem;
+  background: -webkit-linear-gradient(yellow, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
