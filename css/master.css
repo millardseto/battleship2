@@ -1,3 +1,21 @@
+header, footer {
+  background-image: url("../images/b11.png");
+  background-repeat: repeat;
+  color: white;
+  padding-left: 1rem;
+}
+
+body {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
