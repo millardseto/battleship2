@@ -47,17 +47,15 @@ $(function() {
 
 
     for (row = 0; row < areaSize; row++){
-      var y = document.createElement("TR");
-      y.setAttribute("id", "myTr"+row);
-      document.getElementById("myTable").appendChild(y);
+      var newRow = document.createElement("TR");
+      document.getElementById("myTable").appendChild(newRow);
 
       /* loop and create cells with unique ids */
       for (i = 0; i < areaSize; i++) {
-        var z = document.createElement("TD");
-        //z.setAttribute("id", i+(row*10));
+        var newTD = document.createElement("TD");
         var t = document.createTextNode(i);
-        z.appendChild(t);
-        document.getElementById("myTr"+row).appendChild(z);
+        newTD.appendChild(t);
+        newRow.appendChild(newTD);
       }
     }
 
@@ -69,14 +67,9 @@ $(function() {
         return;
       }
 
-      //var guess = td.target.id;
-
       /* Future use. */
       var guessX = td.target.cellIndex;
       var guessY = td.target.parentElement.rowIndex;
-
-
-
 
       guesses++;
 
