@@ -79,6 +79,10 @@ $(function() {
         hits++;
         $("#hits").val(hits);
 
+        /* load new audio everytime so multiple can play */
+        var audioHit = new Audio("./sounds/grenade.wav");
+        audioHit.play();
+
         if (hits == shipSize) {
           $("#message").text("You sank my battleship!");
           isSunk = true;
@@ -86,6 +90,8 @@ $(function() {
         }
       } else {
         $(td.target).addClass("miss");
+        var audioMiss = new Audio("./sounds/splash.wav");
+        audioMiss.play();
       }
 
       $("#guesses").val(guesses);
