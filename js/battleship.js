@@ -87,7 +87,7 @@ $(function() {
         if (hits == shipSize) {
           $("#message").text("You sank my battleship!");
           isSunk = true;
-          $("#message2").html("<img src='./images/sunk.gif' alt='sinking ship'>");
+          $("#message2").html("<img src='./images/sunk.gif' alt='sinking ship' class='img-circle'>");
         }
       } else {
         $(td.target).addClass("miss");
@@ -115,8 +115,13 @@ $(function() {
     $(cell3).toggleClass("cheat");
   });
 
-
-
-
+  $("#playMusic").click(function(chk){
+    audio = document.getElementById("musicPlayer");
+    if (chk.target.checked) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
 
 });

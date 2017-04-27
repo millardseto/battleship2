@@ -55,3 +55,7 @@ td {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.img-circle {
+    border-radius: 50%;
+}

@@ -29,6 +29,10 @@
                 <input type="checkbox" id="cheat" name="cheat" value="">
                 Cheat
               </label>
+              <label>
+                <input type="checkbox" id="playMusic" name="playMusic" value="true">
+                Play Music
+              </label>
             </div>
             <button type="button" id="btnOK">Reset Game</button>
             <div class="" id="output"></div>
@@ -55,6 +59,7 @@
     </div>
   </section>
 
+  <audio id="musicPlayer" loop="loop"><source src="./sounds/battleship.mp3" type="audio/mpeg" /></audio>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="./js/battleship.js"></script>
