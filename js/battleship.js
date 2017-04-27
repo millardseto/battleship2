@@ -45,19 +45,19 @@ $(function() {
     //document.body.appendChild(x);
     $("#main").append(x);
 
-//xxx
-    for (j = 0; j < areaSize; j++){
+
+    for (row = 0; row < areaSize; row++){
       var y = document.createElement("TR");
-      y.setAttribute("id", "myTr"+j);
+      y.setAttribute("id", "myTr"+row);
       document.getElementById("myTable").appendChild(y);
 
       /* loop and create cells with unique ids */
       for (i = 0; i < areaSize; i++) {
         var z = document.createElement("TD");
-        z.setAttribute("id", i+(j*10));
+        //z.setAttribute("id", i+(row*10));
         var t = document.createTextNode(i);
         z.appendChild(t);
-        document.getElementById("myTr"+j).appendChild(z);
+        document.getElementById("myTr"+row).appendChild(z);
       }
     }
 
