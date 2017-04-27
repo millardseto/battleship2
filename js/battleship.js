@@ -53,7 +53,7 @@ $(function() {
       /* loop and create cells with unique ids */
       for (i = 0; i < areaSize; i++) {
         var newTD = document.createElement("TD");
-        var t = document.createTextNode(i);
+        var t = document.createTextNode("●");
         newTD.appendChild(t);
         newRow.appendChild(newTD);
       }
