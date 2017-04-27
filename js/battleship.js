@@ -8,6 +8,14 @@ $(function() {
   var shipSize = 3;
   var locationRow;
 
+  var audioHit = new Howl({
+    src: ['./sounds/grenade.wav']
+  });
+
+  var audioMiss = new Howl({
+    src: ['./sounds/splash.wav']
+  });
+
   $("#btnOK").click(makeBattleZone);
 
   makeBattleZone(); // by default set up the game
@@ -43,7 +51,6 @@ $(function() {
 
     var x = document.createElement("TABLE");
     x.setAttribute("id", "myTable");
-    //document.body.appendChild(x);
     $("#battleArea").append(x);
 
 
@@ -68,7 +75,7 @@ $(function() {
         return;
       }
 
-      /* Future use. */
+      /* determine (x,y) */
       var guessX = td.target.cellIndex;
       var guessY = td.target.parentElement.rowIndex;
 
@@ -80,8 +87,6 @@ $(function() {
         hits++;
         $("#hits").val(hits);
 
-        /* load new audio everytime so multiple can play */
-        var audioHit = new Audio("./sounds/grenade.wav");
         audioHit.play();
 
         if (hits == shipSize) {
@@ -91,7 +96,6 @@ $(function() {
         }
       } else {
         $(td.target).addClass("miss");
-        var audioMiss = new Audio("./sounds/splash.wav");
         audioMiss.play();
       }
 
