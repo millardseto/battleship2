@@ -6,6 +6,7 @@ $(function() {
   var hits = 0;
   var isSunk = false;
   var shipSize = 3;
+  var locationRow;
 
   $("#btnOK").click(makeBattleZone);
 
@@ -22,14 +23,16 @@ $(function() {
     $("#guesses").val(0);
     $("#accuracy").val(0);
 
-    var columns = $("#columns").val();
+    var areaSize = $("#columns").val();
 
     // ship
     //var randomLoc = Math.floor(Math.random() * 5); // random 0 to 4
-    var randomLoc = Math.floor(Math.random() * (columns-(shipSize-1))); // random
+    var randomLoc = Math.floor(Math.random() * (areaSize-(shipSize-1))); // random
     location1 = randomLoc;
     location2 = location1 + 1;
     location3 = location2 + 1;
+
+    locationRow = Math.floor(Math.random() * areaSize); // ex: if areaSize = 7, then random number between 0 and 6.
 
 
     /* remove table if it already exists */
@@ -42,17 +45,20 @@ $(function() {
     //document.body.appendChild(x);
     $("#main").append(x);
 
-    var y = document.createElement("TR");
-    y.setAttribute("id", "myTr");
-    document.getElementById("myTable").appendChild(y);
+//xxx
+    for (j = 0; j < areaSize; j++){
+      var y = document.createElement("TR");
+      y.setAttribute("id", "myTr"+j);
+      document.getElementById("myTable").appendChild(y);
 
-    /* loop and create cells with unique ids */
-    for (i = 0; i < columns; i++) {
-      var z = document.createElement("TD");
-      z.setAttribute("id", i);
-      var t = document.createTextNode(i);
-      z.appendChild(t);
-      document.getElementById("myTr").appendChild(z);
+      /* loop and create cells with unique ids */
+      for (i = 0; i < areaSize; i++) {
+        var z = document.createElement("TD");
+        z.setAttribute("id", i+(j*10));
+        var t = document.createTextNode(i);
+        z.appendChild(t);
+        document.getElementById("myTr"+j).appendChild(z);
+      }
     }
 
     // we have a new table every time, so rebind event everytime
@@ -63,11 +69,18 @@ $(function() {
         return;
       }
 
-      var guess = td.target.id;
+      //var guess = td.target.id;
+
+      /* Future use. */
+      var guessX = td.target.cellIndex;
+      var guessY = td.target.parentElement.rowIndex;
+
+
+
 
       guesses++;
 
-      if (guess == location1 || guess == location2 || guess == location3) {
+      if ((guessX == location1 || guessX == location2 || guessX == location3) && guessY == locationRow) {
         $(td.target).removeClass("cheat");
         $(td.target).addClass("hit");
         hits++;
@@ -92,9 +105,14 @@ $(function() {
 
   // reveal where ship is
   $("#cheat").click(function(chkCheat){
-    $("#"+location1).toggleClass("cheat");
-    $("#"+location2).toggleClass("cheat");
-    $("#"+location3).toggleClass("cheat");
+    var table = $("#myTable")[0];
+    var cell1 = table.rows[locationRow].cells[location1];
+    var cell2 = table.rows[locationRow].cells[location2];
+    var cell3 = table.rows[locationRow].cells[location3];
+
+    $(cell1).toggleClass("cheat");
+    $(cell2).toggleClass("cheat");
+    $(cell3).toggleClass("cheat");
   });
 
 
