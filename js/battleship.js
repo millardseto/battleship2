@@ -22,6 +22,7 @@ $(function() {
     $("#hits").val(0);
     $("#guesses").val(0);
     $("#accuracy").val(0);
+    $("#message2").html('');
 
     var areaSize = $("#columns").val();
 
@@ -43,7 +44,7 @@ $(function() {
     var x = document.createElement("TABLE");
     x.setAttribute("id", "myTable");
     //document.body.appendChild(x);
-    $("#main").append(x);
+    $("#battleArea").append(x);
 
 
     for (row = 0; row < areaSize; row++){
@@ -86,7 +87,7 @@ $(function() {
         if (hits == shipSize) {
           $("#message").text("You sank my battleship!");
           isSunk = true;
-          //$("#myTable").find("*").attr("disabled", "disabled"); // game is over, block user from clicking
+          $("#message2").html("<img src='./images/sunk.gif' alt='sinking ship'>");
         }
       } else {
         $(td.target).addClass("miss");
